@@ -32,35 +32,14 @@ exec --no-startup-id amixer sset Speaker unmute
 exec --no-startup-id amixer sset Headphone unmute
 exec --no-startup-id numlockx on
 exec_always feh --bg-fill $wallpaper
-exec_always --no-startup-id $HOME/.config/i3/scripts/polybar.sh
-exec_always --no-startup-id dbus-launch compton -CG --config .config/compton/compton.conf
-exec_always xrandr --output eDP-1 --primary --mode 1920x1200 --pos 1920x1080 --rotate normal --output HDMI-1 --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-1 --off --output HDMI-2 --off --output DP-2 --off --output HDMI-3 --off --output DP-3 --off --output DP-4 --off --output HDMI-4 --off --output DP-1-5 --mode 1920x1080 --pos 3840x1080 --rotate normal --output DP-1-6 --mode 1920x1080 --pos 0x1080 --rotate normal
-
-# bindsym $win+e exec terminator -e ranger
-bindsym $win+f exec flameshot gui
-
-# display preference
-
-# pulseaudio pactl (volume)
-bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume 0 +5%"
-bindsym XF86AudioLowerVolume exec "pactl set-sink-volume 0 -5%"
-bindsym XF86AudioMute exec $HOME/.config/i3/scripts/mute
+exec_always --no-startup-id $HOME/.config/i3/polybar.sh
+exec_always xrandr --output Virtual1 --mode 2560x1440
 
 # modifiers
 floating_modifier $mod
 
-# sreen brightness controls
-bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
-bindsym XF86MonBrightnessUp exec brightnessctl set +5%
-
 # touchpad controls
 bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh 
-
-# media player controls
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioPause exec playerctl pause-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
 
 # keybinds
 bindsym $mod+Return exec i3-sensible-terminal 
